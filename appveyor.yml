@@ -1,0 +1,47 @@
+# Copyright M. Hassan 2016
+# Distributed under the The MIT License (MIT).
+# (See accompanying file LICENSE.md or copy at https://opensource.org/licenses/MIT
+
+shallow_clone: true
+
+os:
+  - Visual Studio 2015 Update 3
+
+build:
+  verbosity: detailed
+
+configuration:
+  - Debug
+
+
+
+install:
+  ############################################################################
+  # All external dependencies are installed in C:\projects\deps
+  ############################################################################
+  - mkdir C:\projects\deps
+  - cd C:\projects\deps
+
+  
+
+  ############################################################################
+  # Install a recent CMake
+  ############################################################################
+  - set CMAKE_URL="https://cmake.org/files/v3.6/cmake-3.6.3-win64-x64.zip"
+  - appveyor DownloadFile %CMAKE_URL% -FileName cmake.zip
+  - 7z x cmake.zip -oC:\projects\deps\cmake > nul
+  - set PATH=C:\projects\deps\cmake\bin;%PATH%
+  - cmake --version
+
+ 
+
+
+before_build:
+  - call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" amd64
+  - cd C:\projects\cloudbuilder
+
+
+build_script:
+  - cmake -H. -Bbuild
+  - cmake --build build
+  
