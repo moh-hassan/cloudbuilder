@@ -42,6 +42,7 @@ before_build:
 
 
 build_script:
-  - cmake -H. -Bbuild
+  #- cmake -H. -Bbuild 
+  - cmake -H. -Bbuild -G "Visual Studio 15 Win64"
   - cmake --build build
   
