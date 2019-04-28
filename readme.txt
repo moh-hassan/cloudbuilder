@@ -4,4 +4,4 @@ stage2:
 mvn environment
 ========
 stage3:
-test
+
