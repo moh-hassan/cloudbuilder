@@ -17,3 +17,5 @@ set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 include_directories("${PROJECT_SOURCE_DIR}")
 
 add_executable(hello ${PROJECT_SOURCE_DIR}/test.cpp)
+#-------------
+#file 1
