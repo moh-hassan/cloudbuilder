@@ -1,0 +1,10 @@
+version: 1.0.0-dev-{build} 
+
+image: Visual Studio 2022
+
+
+
+# Build and test script
+build_script:
+  - dotnet build demo.sln --configuration Release
+  - dotnet test demo.sln --configuration Release
